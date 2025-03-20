@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./Components/Home/Home";
+import AddInventory from "./Components/AddInventory/AddInventory";
+import Inventory from "./Components/Inventory/Inventory";
+import UpdateInventory from "./Components/UpdateInventory/UpdateInventory";
+import AddMenuItem from "./Components/AddMenuItem/AddMenuItem"; // Add this line
+import Menu from "./Components/Menu/Menu";
+import UpdateMenuItem from "./Components/UpdateMenuItem/UpdateMenuItem";
+import UserOrders from "./Components/UserOrders/UserOrders";
+import CustomerBill from "./Components/CustomerBill/CustomerBill";
+
+import Nav from "./Components/Nav/Nav";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/addinventory" element={<AddInventory />} />
+        <Route path="/inventory" element={<Inventory />} />
+        <Route path="/updateinventory/:id" element={<UpdateInventory />} />
+        <Route path="/addmenuitem" element={<AddMenuItem />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/updatemenuitem/:id" element={<UpdateMenuItem />} />
+        <Route path="/userorders" element={<UserOrders />} />
+        <Route path="/customerbill" element={<CustomerBill />} />
+        
+      </Routes>
     </div>
   );
 }
