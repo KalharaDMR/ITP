@@ -14,7 +14,7 @@ const Login = () => {
         
         e.preventDefault()
         try {
-            const response = await axios.post("http://localhost:5000/api/auth/login", {email, password});
+            const response = await axios.post("http://localhost:4003/api/auth/login", {email, password});
 
             if(response.data.success){
                 login(response.data.user)
@@ -38,7 +38,7 @@ const Login = () => {
   return (
     <div className='flex flex-col items-center h-screen justify-center bg-gradient-to-b from-teal-600 from-50%
                  to-gray-100 to-50% space-y-6'>
-      <h2 className='font-ConcertOne text-5xl text-white'>Employee Management System</h2>
+      <h2 className='font-ConcertOne text-6xl text-white'>Nature's Lake View</h2>
       <div className='border-shadow p-6 w-80 bg-white'>
         <h2 className='text-2xl font-bold mb-4'>Login</h2>
         <form onSubmit={handleSubmit}>  

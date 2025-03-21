@@ -19,7 +19,7 @@ const DepartmentList = () => {
       setDepLoading(true);
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/department",
+          "http://localhost:4003/api/department",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
