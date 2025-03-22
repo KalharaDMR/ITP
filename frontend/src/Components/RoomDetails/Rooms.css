@@ -1,0 +1,105 @@
+/* Rooms.css */
+
+/* General Styles */
+.rooms-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Search Container */
+  .search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .search-input {
+    width: 300px;
+    padding: 12px 20px;
+    border: 2px solid #007bff;
+    border-radius: 25px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .search-input:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  }
+  
+  .search-button {
+    padding: 12px 20px;
+    margin-left: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .search-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  .search-button:active {
+    transform: translateY(0);
+  }
+  
+  /* No Results Message */
+  .no-results {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ff4d4d;
+    margin-top: 20px;
+  }
+  
+  /* Rooms List */
+  .rooms-list {
+    margin-top: 20px;
+  }
+  
+  .no-bookings {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  /* Download Report Button */
+  .download-button {
+    display: block;
+    margin: 30px auto;
+    padding: 12px 24px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .download-button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+  }
+  
+  .download-button:active {
+    transform: translateY(0);
+  }
+  
+  /* Font Awesome Icons */
+  .fas {
+    margin-right: 8px;
+  }

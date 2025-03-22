@@ -1,0 +1,42 @@
+.room-container {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 16px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .room-container h1 {
+    margin: 8px 0;
+    font-size: 18px;
+  }
+  
+  .room-container button {
+    margin-right: 8px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .room-container button:hover {
+    background-color: #0056b3;
+  }
+  .room-container .update-button {
+    margin-right: 8px;
+    padding: 8px 16px;
+    background-color: #007bff; /* Blue color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline for Link */
+    display: inline-block; /* Ensure Link behaves like a button */
+    text-align: center;
+}
+
+.room-container .update-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}

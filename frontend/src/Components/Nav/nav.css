@@ -1,0 +1,30 @@
+.home-ul {
+    list-style-type: none;  /* Removes bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Aligns items in a row */
+    justify-content: center; /* Centers the items */
+    gap: 20px; /* Adds space between list items */
+    background-color: #f8f9fa; /* Light background */
+    padding: 10px 0; /* Adds space around items */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.home-ll {
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.home-ll:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+h1 {
+    font-size: 18px;
+    margin: 0;
+}
