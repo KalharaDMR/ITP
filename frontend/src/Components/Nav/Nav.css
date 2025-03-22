@@ -1,0 +1,15 @@
+.nav-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 22px 27px;
+    background-color: #9c6133; /* Brown color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hotel-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFF; /* White color for text */
+    text-transform: uppercase;
+}
