@@ -14,7 +14,7 @@ app.use(cors());
 app.use("/inventory", inventoryRoutes); // Add this line
 
 mongoose
-  .connect("mongodb+srv://dmrkalhara1007:rRUaYYc80F7zeppg@mycluster.e2pzt.mongodb.net/")
+  .connect("databse connection")
   .then(() => console.log("Connected to MongoDB"))
   .then(() => {
     app.listen(5000, () => console.log("Server running on port 5000"));
