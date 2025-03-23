@@ -1,0 +1,49 @@
+/* Main container styling */
+div {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 4px;
+    border-radius: 1px;
+   
+}
+
+/* Unordered list styling */
+.home-ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Make the list items display in a row */
+    justify-content: space-around; /* Space out the items evenly */
+    align-items: center; /* Center items vertically */
+}
+
+/* List item styling */
+.home-li {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for list items */
+.home-li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Heading styling inside list items */
+.home-li h1 {
+    font-size: 1.2rem;
+    color: #333333;
+    margin: 0;
+}
+
+/* Specific styling for the "ADD user" list item */
+.home-li:nth-child(2) h1 {
+    color: #007bff; /* Blue color for "ADD user" */
+}
+
+/* Specific styling for the "user details" list item */
+.home-li:nth-child(3) h1 {
+    color: #28a745; /* Green color for "user details" */
+}
