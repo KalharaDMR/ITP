@@ -305,7 +305,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import axios from "axios";
 import Room from '../Room/Room';
 import { useReactToPrint } from "react-to-print";
-import './Rooms.css'; // Import the updated CSS file
+import './Rooms.css';
 
 const URL = "http://localhost:5000/users";
 
@@ -355,11 +355,6 @@ function Rooms() {
     onAfterPrint: () => alert("Your Safari Report Downloaded Successfully!"),
   });
 
-  // Handle update functionality
-  const handleUpdate = (user) => {
-    console.log("Update user:", user);
-  };
-
   // Handle delete functionality
   const handleDelete = async (id) => {
     try {
@@ -375,12 +370,12 @@ function Rooms() {
   };
 
   const handleSendReport = () => {
-    //create the whatsapp chat URL
+    // Create the WhatsApp chat URL
     const phoneNumber = "+94774946204";
-    const message = `selected Safari Reports`;
+    const message = `Selected Safari Reports`;
     const whatsappUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
 
-    //open the whatsapp for chat in new window
+    // Open WhatsApp in a new window
     window.open(whatsappUrl, "_blank");
   };
 
@@ -414,7 +409,7 @@ function Rooms() {
         {filteredRooms.length > 0 ? (
           filteredRooms.map((user, i) => (
             <div key={i}>
-              <Room user={user} onUpdate={handleUpdate} onDelete={handleDelete} />
+              <Room user={user} onDelete={handleDelete} />
             </div>
           ))
         ) : (

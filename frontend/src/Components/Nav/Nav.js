@@ -1,64 +1,35 @@
-/*import React from "react";
-import './nav.css';
-import {Link} from  "react-router-dom";
-
-function Nav() {
-  return (
-    <div>
-       <ul className="home-ul">
-        <li className="home-ll">
-            <Link to="/mainhome"className="active home-a">
-            <h1>Home</h1>
-            </Link>
-        </li>
-        <li className="home-ll">
-        <Link to="/Room"className="active home-a">
-            <h1>ADD Booking Request</h1>
-            </Link>
-        </li>
-        <li className="home-ll">
-        <Link to="/Room"className="active home-a">
-            <h1>Booking details</h1>
-            </Link>
-        </li>
-       </ul>
-        </div>
-  );
-}
-
-export default Nav*/
-
-
 import React from "react";
-import './nav.css';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { FaUserCircle } from "react-icons/fa"; // Profile icon
+import "./nav.css";
 
-function Nav() {
+function Nav({ isSignedIn }) {
   return (
-    <div>
-      <ul className="home-ul">
-        <li className="home-ll">
-          <Link to="/mainhome" className="active home-a">
-            <h1>Home</h1>
-          </Link>
-        </li>
-        <li className="home-ll">
-          <Link to="/addroom" className="active home-a">
-            <h1>ADD Booking Request</h1>
-          </Link>
-        </li>
-        <li className="home-ll">
-          <Link to="/roomdetails" className="active home-a">
-            <h1>Booking details</h1>
-          </Link>
-        </li>
-        <li className="home-ll">
-          <Link to="/regi" className="active home-a">
-            <button>Register</button>
-          </Link>
-        </li>
-      </ul>
-    </div>
+    <nav className="navbar">
+      <div className="navbar-left">
+        <span className="logo">Nature's Lake</span>
+      </div>
+      <div className="navbar-right">
+        <NavLink to="/mainhome" className="nav-link" activeClassName="active">
+          Home
+        </NavLink>
+        <NavLink to="/safaritypes" className="nav-link" activeClassName="active">
+          Safaris
+        </NavLink>
+        <NavLink to="/addroom" className="nav-link" activeClassName="active">
+          Book Now
+        </NavLink>
+        <NavLink to="/roomdetails" className="nav-link" activeClassName="active">
+          My Bookings
+        </NavLink>
+        <NavLink to="/contact" className="nav-link" activeClassName="active">
+          Contact
+        </NavLink>
+        <NavLink to="/profile" className="nav-link">
+          <FaUserCircle className="profile-icon" />
+        </NavLink>
+      </div>
+    </nav>
   );
 }
 

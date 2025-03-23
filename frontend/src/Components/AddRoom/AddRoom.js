@@ -498,7 +498,7 @@ function AddRoom() {
             </optgroup>
             <optgroup label="Additional Safari Destinations">
               <option value="Yala National Park - Full-day">Yala National Park - Full-day</option>
-              <option value="Udawalawe National Park - Half-day (Morning)">Udawalawe National Park - Half-day (Morning)</option>
+              <option value="Udawalawe NationalPark - Half-day (Morning)">Udawalawe National Park - Half-day (Morning)</option>
               <option value="Wilpattu National Park - Full-day">Wilpattu National Park - Full-day</option>
               <option value="Minneriya National Park - Half-day (Morning)">Minneriya National Park - Half-day (Morning)</option>
               <option value="Maduru Oya National Park - Half-day (Afternoon)">Maduru Oya National Park - Half-day (Afternoon)</option>

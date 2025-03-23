@@ -186,9 +186,8 @@ function Room({ user, onUpdate, onDelete }) {
 export default Room;*/
 
 import React from 'react';
-import './Room.css'; // Import the CSS file
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import axios from 'axios';
+import './Room.css';
+import { useNavigate } from 'react-router-dom';
 
 function Room({ user, onDelete }) {
   const {
@@ -230,7 +229,7 @@ function Room({ user, onDelete }) {
       <h1>NoOfAdults: {NoOfAdults}</h1>
       <h1>NoOfKids: {NoOfKids}</h1>
       <h1>Nationality: {Nationality}</h1>
-      <button onClick={handleUpdate} className="update-button">Update</button> {/* Use onClick for navigation */}
+      <button onClick={handleUpdate} className="update-button">Update</button>
       <button onClick={handleDelete} className="delete-button">Delete</button>
     </div>
   );

@@ -1,0 +1,41 @@
+.admin-bookings-container {
+    padding: 20px;
+  }
+  
+  .admin-bookings-container h1 {
+    margin-bottom: 20px;
+  }
+  
+  .print-button {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .print-button:hover {
+    background-color: #0056b3;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table th, table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  table th {
+    background-color: #f5f5f5;
+  }
+  
+  .error-message {
+    color: #ff0000;
+    margin-top: 10px;
+  }

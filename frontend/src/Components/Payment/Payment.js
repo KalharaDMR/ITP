@@ -1,10 +1,21 @@
+// Payment.js
 import React from 'react';
-import { useLocation } from 'react-router-dom';
-import './Payment.css'; // Import the CSS file for styling
+import { useLocation, useNavigate } from 'react-router-dom';
+import './Payment.css';
 
 function Payment() {
   const location = useLocation();
+  const navigate = useNavigate();
   const { FirstName, LastName, SafariType, NoOfAdults, NoOfKids, totalCost } = location.state;
+
+  const handlePayNow = () => {
+    // Pass totalCost to PaymentGateway
+    navigate('/paymentgateway', { state: { totalCost } });
+  };
+
+  const handleAdminView = () => {
+    navigate("/roomdetails");
+  };
 
   return (
     <div className="payment-container">
@@ -16,7 +27,8 @@ function Payment() {
         <p><strong>Number of Kids:</strong> {NoOfKids}</p>
         <p><strong>Total Cost:</strong> LKR {totalCost}</p>
       </div>
-      <button className="pay-now-button">Pay Now</button>
+      <button onClick={handlePayNow} className="pay-now-button">Pay Now</button>
+      <button onClick={handleAdminView} className="admin-view-button">Admin View</button>
     </div>
   );
 }

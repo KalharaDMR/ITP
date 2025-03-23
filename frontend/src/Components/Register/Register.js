@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import Nav from '../Nav/Nav';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import './Register.css'; // Import CSS for styling
 
@@ -12,6 +11,8 @@ function Register() {
     password: "",
   });
 
+  const [error, setError] = useState(""); // State to handle error messages
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUser((prevUser) => ({ ...prevUser, [name]: value }));
@@ -20,6 +21,12 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Validate input fields
+    if (!user.name || !user.gmail || !user.password) {
+      setError("All fields are required.");
+      return;
+    }
+
     try {
       const response = await axios.post("http://localhost:5000/register", {
         name: user.name,
@@ -27,33 +34,35 @@ function Register() {
         password: user.password,
       });
 
+      console.log("Backend response:", response.data); // Log the response
+
       if (response.data.status === "ok") {
         alert("Registration successful!");
-        history("/roomdetails");
+        history("/signin"); // Redirect to the sign-in page after successful registration
       } else {
-        alert(response.data.message || "Registration failed. Please try again.");
+        setError(response.data.message || "Registration failed. Please try again.");
       }
     } catch (err) {
       console.error("Error registering user:", err);
       if (err.response) {
         // Server responded with a status code outside 2xx
-        alert(err.response.data.message || "Registration failed. Please try again.");
+        setError(err.response.data.message || "Registration failed. Please try again.");
       } else if (err.request) {
         // No response received
-        alert("No response from the server. Please check your connection.");
+        setError("No response from the server. Please check your connection.");
       } else {
         // Something went wrong in setting up the request
-        alert("An error occurred. Please try again.");
+        setError("An error occurred. Please try again.");
       }
     }
   };
 
   return (
     <div className="register-page">
-      <Nav />
       <div className="register-container">
         <div className="register-form">
           <h1>Create Account</h1>
+          {error && <div className="error-message">{error}</div>} {/* Display error message */}
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label>Name</label>
@@ -88,11 +97,13 @@ function Register() {
                 required
               />
             </div>
-            <button type="submit" className="register-button">Register</button>
+            <button type="submit" className="register-button">
+              Register
+            </button>
           </form>
 
           <div className="login-link">
-            <p>Already have an account? <a href="/login">Sign in</a></p>
+            <p>Already have an account? <Link to="/signin">Sign in</Link></p>
           </div>
         </div>
       </div>

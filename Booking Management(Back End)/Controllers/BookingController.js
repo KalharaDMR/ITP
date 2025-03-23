@@ -103,5 +103,3 @@ exports.addUsers = addUsers;
 exports.getById = getById;
 exports.updateUser= updateUser;
 exports.deleteUser = deleteUser;
-
-

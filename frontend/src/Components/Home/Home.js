@@ -1,5 +1,3 @@
-
-
 import React from "react";
 //import backgroundImage from "../../images/safari1.jpeg"; // Import the image
 import "./Home.css"; // Import the CSS file for styling

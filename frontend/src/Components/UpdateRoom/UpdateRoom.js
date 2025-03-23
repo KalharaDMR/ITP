@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import './UpdateRoom.css'; // Updated import
-
+import './UpdateRoom.css';
 
 function UpdateRoom() {
   const [inputs, setInputs] = useState({
@@ -108,28 +107,28 @@ function UpdateRoom() {
         <div className="form-group">
           <label>Safari Type:</label>
           <select name="SafariType" value={inputs.SafariType} onChange={handleChange} required>
-          <option value="">Select Safari Type</option>
+            <option value="">Select Safari Type</option>
             <optgroup label="Block 1 (Palatupana)">
-              <option value="Block 1 (Palatupana) - Half-day (Morning)">Half-day (Morning) </option>
-              <option value="Block 1 (Palatupana) - Half-day (Afternoon)">Half-day (Afternoon) </option>
-              <option value="Block 1 (Palatupana) - Full-day">Full-day </option>
+              <option value="Block 1 (Palatupana) - Half-day (Morning)">Half-day (Morning)</option>
+              <option value="Block 1 (Palatupana) - Half-day (Afternoon)">Half-day (Afternoon)</option>
+              <option value="Block 1 (Palatupana) - Full-day">Full-day</option>
             </optgroup>
             <optgroup label="Block 1 (Katagamuwa)">
-              <option value="Block 1 (Katagamuwa) - Half-day (Morning)">Half-day (Morning) -</option>
-              <option value="Block 1 (Katagamuwa) - Half-day (Afternoon)">Half-day (Afternoon) - </option>
-              <option value="Block 1 (Katagamuwa) - Full-day">Full-day </option>
+              <option value="Block 1 (Katagamuwa) - Half-day (Morning)">Half-day (Morning)</option>
+              <option value="Block 1 (Katagamuwa) - Half-day (Afternoon)">Half-day (Afternoon)</option>
+              <option value="Block 1 (Katagamuwa) - Full-day">Full-day</option>
             </optgroup>
             <optgroup label="Blocks 4&5 (Galge)">
-              <option value="Blocks 4&5 (Galge) - Half-day (Morning)">Half-day (Morning) </option>
-              <option value="Blocks 4&5 (Galge) - Half-day (Afternoon)">Half-day (Afternoon) </option>
+              <option value="Blocks 4&5 (Galge) - Half-day (Morning)">Half-day (Morning)</option>
+              <option value="Blocks 4&5 (Galge) - Half-day (Afternoon)">Half-day (Afternoon)</option>
               <option value="Blocks 4&5 (Galge) - Full-day">Full-day</option>
             </optgroup>
             <optgroup label="Additional Safari Destinations">
-              <option value="Yala National Park - Full-day">Yala National Park - Full-day </option>
-              <option value="Udawalawe National Park - Half-day (Morning)">Udawalawe National Park - Half-day (Morning) </option>
-              <option value="Wilpattu National Park - Full-day">Wilpattu National Park - Full-day </option>
-              <option value="Minneriya National Park - Half-day (Morning)">Minneriya National Park - Half-day (Morning) </option>
-              <option value="Maduru Oya National Park - Half-day (Afternoon)">Maduru Oya National Park - Half-day (Afternoon) </option>
+              <option value="Yala National Park - Full-day">Yala National Park - Full-day</option>
+              <option value="Udawalawe National Park - Half-day (Morning)">Udawalawe National Park - Half-day (Morning)</option>
+              <option value="Wilpattu National Park - Full-day">Wilpattu National Park - Full-day</option>
+              <option value="Minneriya National Park - Half-day (Morning)">Minneriya National Park - Half-day (Morning)</option>
+              <option value="Maduru Oya National Park - Half-day (Afternoon)">Maduru Oya National Park - Half-day (Afternoon)</option>
             </optgroup>
           </select>
         </div>

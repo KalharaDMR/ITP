@@ -1,49 +1,102 @@
 /* Payment.css */
 
 .payment-container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.payment-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.payment-details {
+  margin-bottom: 30px;
+}
+
+.payment-details p {
+  font-size: 1.2rem;
+  color: #555;
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+.payment-details strong {
+  color: #333;
+  font-weight: 600;
+}
+
+.pay-now-button, .admin-view-button {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: 20px auto;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.pay-now-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.pay-now-button:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.pay-now-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.admin-view-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.admin-view-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.admin-view-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .payment-container {
+      padding: 20px;
+      margin: 20px auto;
   }
-  
+
   .payment-title {
-    text-align: center;
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 20px;
+      font-size: 1.8rem;
   }
-  
-  .payment-details {
-    margin-bottom: 30px;
-  }
-  
+
   .payment-details p {
-    font-size: 1.2rem;
-    color: #555;
-    margin: 10px 0;
+      font-size: 1rem;
   }
-  
-  .pay-now-button {
-    display: block;
-    margin: 0 auto;
-    padding: 12px 24px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+
+  .pay-now-button, .admin-view-button {
+      max-width: 100%;
+      font-size: 0.9rem;
   }
-  
-  .pay-now-button:hover {
-    background-color: #218838;
-    transform: translateY(-2px);
-  }
-  
-  .pay-now-button:active {
-    transform: translateY(0);
-  }
+}
