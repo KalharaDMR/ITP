@@ -6,7 +6,7 @@ import './PaymentGateway.css';
 function PaymentGateway() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { totalCost } = location.state; // Retrieve totalCost from state
+  const { totalCost, FirstName, LastName, SafariType, NoOfAdults, NoOfKids } = location.state; // Retrieve all details from state
 
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
@@ -27,15 +27,16 @@ function PaymentGateway() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // Process payment here
-      alert('Payment Successful!');
-      navigate('/roomdetails'); // Navigate after successful payment
+      // Navigate to PaymentSuccess page with ALL details
+      navigate('/paymentsuccess', {
+        state: { FirstName, LastName, SafariType, NoOfAdults, NoOfKids, totalCost },
+      });
     }
   };
 
   return (
     <div className="payment-gateway-container">
-      <h2 className="payment-title">Payment Gateway</h2>
+      <h2 className="payment-title">Payment Details</h2>
       <form onSubmit={handleSubmit} className="payment-form">
         <div className="form-group">
           <label>Card Number</label>

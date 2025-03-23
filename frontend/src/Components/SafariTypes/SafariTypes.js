@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './SafariTypes.css';
 
 function SafariTypes() {
+  const navigate = useNavigate(); // Initialize useNavigate
+
   // Static data for safaris with local image paths
   const safaris = [
     {
@@ -19,7 +22,7 @@ function SafariTypes() {
       location: "Yala, Sri Lanka",
       pricePerPerson: 2500,
       bookingsLast24Hours: 4,
-      imageUrl: "/images/safari8.jpeg", // Local image path
+      imageUrl: "/images/safari15.jpeg", // Local image path
     },
     {
       id: 3,
@@ -28,7 +31,7 @@ function SafariTypes() {
       details: "Booked in last 4 hours",
       pricePerPerson: 2800,
       bookingsLast24Hours: 1,
-      imageUrl: "/images/safari15.jpeg", // Local image path
+      imageUrl: "/images/safari8.jpeg", // Local image path
     },
     {
       id: 4,
@@ -83,6 +86,12 @@ function SafariTypes() {
     },
   ];
 
+  // Function to handle "View Rates" button click
+  const handleViewRates = (safari) => {
+    console.log("Navigating to AddRoom with safari:", safari); // Debugging statement
+    navigate('/addroom', { state: { safari } }); // Navigate to AddRoom with safari data
+  };
+
   return (
     <div className="safari-types-container">
       <h1>SELECT A SAFARI</h1>
@@ -103,7 +112,12 @@ function SafariTypes() {
             <p className="bookings">{safari.bookingsLast24Hours} people booked in last 24 hours</p>
             <p className="price">From LKR {safari.pricePerPerson} Per Person</p>
             <p className="taxes">Excluding taxes and fees</p>
-            <button className="view-rates">View rates</button>
+            <button
+              className="view-rates"
+              onClick={() => handleViewRates(safari)} // Pass safari details
+            >
+              View rates
+            </button>
           </div>
         ))}
       </div>

@@ -329,28 +329,30 @@ function AddRoom() {
 export default AddRoom;*/
 
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './AddRoom.css'; // Import the CSS file for styling
+import './AddRoom.css';
 
 function AddRoom() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { safari, userData } = location.state || {}; // Get safari and userData from state
 
   const [inputs, setInputs] = useState({
-    FirstName: "",
-    LastName: "",
+    FirstName: userData?.FirstName || "",
+    LastName: userData?.LastName || "",
     ContactNumber: "",
     Email: "",
     BookingDate: "",
-    Schedule: "", // This should match the backend field (SafariType)
-    NoOfAdults: 0,
-    NoOfKids: 0,
-    Nationality: ""
+    Schedule: safari?.name || "", // Pre-fill Schedule with safari name
+    NoOfAdults: userData?.NoOfAdults || 0,
+    NoOfKids: userData?.NoOfKids || 0,
+    Nationality: "",
   });
 
-  const [totalCost, setTotalCost] = useState(0); // State to store the total cost
-  const [adultPrice, setAdultPrice] = useState(0); // State to store adult price
-  const [kidPrice, setKidPrice] = useState(0); // State to store kid price
+  const [totalCost, setTotalCost] = useState(0);
+  const [adultPrice, setAdultPrice] = useState(safari ? safari.pricePerPerson : 0);
+  const [kidPrice, setKidPrice] = useState(safari ? safari.pricePerPerson * 0.5 : 0);
 
   // Price mapping for each safari type and duration
   const priceMapping = {
@@ -376,73 +378,58 @@ function AddRoom() {
     const adultPrice = priceMapping[selectedSchedule]?.adult || 0;
     const kidPrice = priceMapping[selectedSchedule]?.kid || 0;
 
-    setAdultPrice(adultPrice); // Update adult price
-    setKidPrice(kidPrice); // Update kid price
+    setAdultPrice(adultPrice);
+    setKidPrice(kidPrice);
 
     const adultCost = adultPrice * inputs.NoOfAdults;
     const kidCost = kidPrice * inputs.NoOfKids;
     const total = adultCost + kidCost;
 
-    setTotalCost(total.toFixed(2)); // Update total cost
+    setTotalCost(total.toFixed(2));
   }, [inputs.Schedule, inputs.NoOfAdults, inputs.NoOfKids]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setInputs((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
-  };
-
-  const sendRequest = async () => {
-    try {
-      // Map Schedule to SafariType for backend compatibility
-      const requestData = {
-        ...inputs,
-        SafariType: inputs.Schedule, // Map Schedule to SafariType
-        BookingDate: new Date(inputs.BookingDate), // Convert to Date object
-      };
-
-      console.log("Sending request with data:", requestData); // Debugging statement
-
-      const response = await axios.post("http://localhost:5000/users", requestData);
-      console.log("Response from backend:", response.data); // Debugging statement
-      return response.data;
-    } catch (error) {
-      console.error("Error sending request:", error);
-      throw error;
-    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await sendRequest(); // Send the data to the backend
-      alert("Booking added successfully!");
-
-      // Prepare data to pass to the payment page
-      const paymentData = {
-        FirstName: inputs.FirstName,
-        LastName: inputs.LastName,
+      const response = await axios.post("http://localhost:5000/users", {
+        ...inputs,
         SafariType: inputs.Schedule,
-        NoOfAdults: inputs.NoOfAdults,
-        NoOfKids: inputs.NoOfKids,
-        totalCost: totalCost,
-      };
+        BookingDate: new Date(inputs.BookingDate),
+      });
 
-      // Navigate to the payment page with the selected info and cost
-      navigate('/payment', { state: paymentData });
+      alert("Booking updated successfully!");
+
+      // Navigate to payment page with updated data
+      navigate('/payment', {
+        state: {
+          FirstName: inputs.FirstName,
+          LastName: inputs.LastName,
+          SafariType: inputs.Schedule,
+          NoOfAdults: inputs.NoOfAdults,
+          NoOfKids: inputs.NoOfKids,
+          totalCost: totalCost,
+        },
+      });
     } catch (error) {
-      alert("Failed to add booking. Please try again.");
+      alert("Failed to update booking. Please try again.");
       console.error("Submission error:", error);
     }
   };
 
   return (
     <div className="add-room-container">
-      <h1 className="form-title">Add New Safari Booking</h1>
+      <h1 className="form-title">Edit Safari Booking</h1>
       <form onSubmit={handleSubmit} className="booking-form">
+        {/* Form fields with pre-filled data */}
         <div className="form-group">
           <label>First Name:</label>
           <input type="text" name="FirstName" value={inputs.FirstName} onChange={handleChange} required />
@@ -498,7 +485,7 @@ function AddRoom() {
             </optgroup>
             <optgroup label="Additional Safari Destinations">
               <option value="Yala National Park - Full-day">Yala National Park - Full-day</option>
-              <option value="Udawalawe NationalPark - Half-day (Morning)">Udawalawe National Park - Half-day (Morning)</option>
+              <option value="Udawalawe National Park - Half-day (Morning)">Udawalawe National Park - Half-day (Morning)</option>
               <option value="Wilpattu National Park - Full-day">Wilpattu National Park - Full-day</option>
               <option value="Minneriya National Park - Half-day (Morning)">Minneriya National Park - Half-day (Morning)</option>
               <option value="Maduru Oya National Park - Half-day (Afternoon)">Maduru Oya National Park - Half-day (Afternoon)</option>
@@ -516,7 +503,7 @@ function AddRoom() {
           <input type="number" name="NoOfKids" value={inputs.NoOfKids} onChange={handleChange} required />
         </div>
 
-        <button type="submit" className="submit-button">Add Booking</button>
+        <button type="submit" className="submit-button">Update Booking</button>
       </form>
 
       {/* Total Cost Box */}

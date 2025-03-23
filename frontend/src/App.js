@@ -3,13 +3,14 @@ import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import Home from "./Components/Home/Home";
-import AddRoom from "./Components/AddRoom/AddRoom";
+import AddRoom from "./Components/AddRoom/AddRoom"; // Ensure this import is correct
 import Rooms from "./Components/RoomDetails/Rooms";
 import UpdateRoom from "./Components/UpdateRoom/UpdateRoom";
 import Register from "./Components/Register/Register";
 import Signin from "./Components/Signin/Signin";
 import Payment from "./Components/Payment/Payment";
-import PaymentGateway from "./Components/Payment/PaymentGateway"; // Import the new component
+import PaymentGateway from "./Components/Payment/PaymentGateway";
+import PaymentSuccess from "./Components/Payment/PaymentSuccess";
 import SafariTypes from "./Components/SafariTypes/SafariTypes";
 import Nav from "./Components/Nav/Nav";
 
@@ -23,13 +24,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mainhome" element={<Home />} />
-        <Route path="/addroom" element={<AddRoom />} />
+        <Route path="/addroom" element={<AddRoom />} /> {/* Ensure this route is correct */}
         <Route path="/roomdetails" element={<Rooms />} />
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/update/:id" element={<UpdateRoom />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/paymentgateway" element={<PaymentGateway />} />
+        <Route path="/paymentsuccess" element={<PaymentSuccess />} />
         <Route path="/safaritypes" element={<SafariTypes />} />
       </Routes>
     </div>

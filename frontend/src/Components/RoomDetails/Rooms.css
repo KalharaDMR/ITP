@@ -2,104 +2,216 @@
 
 /* General Styles */
 .rooms-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: 'Arial', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Page Title */
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.page-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #007bff;
+  margin: 10px auto;
+  border-radius: 2px;
+}
+
+/* Search Container */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+/* Animated Search Input */
+.search-input {
+  width: 300px;
+  padding: 12px 20px;
+  border: 2px solid #007bff;
+  border-radius: 25px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #fff;
+  animation: slideIn 0.8s ease-in-out;
+}
+
+.search-input:hover,
+.search-input:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+
+/* Dynamic Placeholder Animation */
+@keyframes changePlaceholder {
+  0% { content: "Search Safari Bookings..."; }
+  50% { content: "Find Your Adventure..."; }
+  100% { content: "Search Safari Bookings..."; }
+}
+
+.search-input::placeholder {
+  transition: opacity 0.5s ease;
+}
+
+/* Search Button */
+.search-button {
+  padding: 12px 20px;
+  margin-left: 10px;
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.search-button:hover {
+  background: linear-gradient(45deg, #0056b3, #003d80);
+  transform: translateY(-2px);
+}
+
+.search-button i {
+  margin-right: 8px;
+}
+
+/* No Results Message */
+.no-results {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #ff4d4d;
+  margin-top: 20px;
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Rooms List */
+.rooms-list {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+.room-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.room-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* No Bookings Message */
+.no-bookings {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Delete Button */
+.delete-button {
+  padding: 10px 20px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.delete-button:hover {
+  background: #c82333;
+  transform: translateY(-2px);
+}
+
+/* Download Report Button */
+.download-button {
+  display: block;
+  margin: 30px auto;
+  padding: 12px 24px;
+  background: linear-gradient(45deg, #28a745, #218838);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.download-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(40, 167, 69, 0.3);
+}
+
+.download-button i {
+  margin-right: 8px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-10px);
   }
-  
-  .page-title {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 20px;
+  to {
+      opacity: 1;
+      transform: translateY(0);
   }
-  
-  /* Search Container */
-  .search-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
   }
-  
-  .search-input {
-    width: 300px;
-    padding: 12px 20px;
-    border: 2px solid #007bff;
-    border-radius: 25px;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  to {
+      opacity: 1;
+      transform: translateY(0);
   }
-  
-  .search-input:focus {
-    border-color: #0056b3;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+@keyframes slideIn {
+  from {
+      opacity: 0;
+      transform: translateX(-20px);
   }
-  
-  .search-button {
-    padding: 12px 20px;
-    margin-left: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  to {
+      opacity: 1;
+      transform: translateX(0);
   }
-  
-  .search-button:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
-  }
-  
-  .search-button:active {
-    transform: translateY(0);
-  }
-  
-  /* No Results Message */
-  .no-results {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #ff4d4d;
-    margin-top: 20px;
-  }
-  
-  /* Rooms List */
-  .rooms-list {
-    margin-top: 20px;
-  }
-  
-  .no-bookings {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #666;
-  }
-  
-  /* Download Report Button */
-  .download-button {
-    display: block;
-    margin: 30px auto;
-    padding: 12px 24px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .download-button:hover {
-    background-color: #218838;
-    transform: translateY(-2px);
-  }
-  
-  .download-button:active {
-    transform: translateY(0);
-  }
-  
-  /* Font Awesome Icons */
-  .fas {
-    margin-right: 8px;
-  }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}

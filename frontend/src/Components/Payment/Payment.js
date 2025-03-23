@@ -9,12 +9,28 @@ function Payment() {
   const { FirstName, LastName, SafariType, NoOfAdults, NoOfKids, totalCost } = location.state;
 
   const handlePayNow = () => {
-    // Pass totalCost to PaymentGateway
-    navigate('/paymentgateway', { state: { totalCost } });
+    // Pass ALL details to PaymentGateway
+    navigate('/paymentgateway', {
+      state: { FirstName, LastName, SafariType, NoOfAdults, NoOfKids, totalCost },
+    });
   };
 
-  const handleAdminView = () => {
-    navigate("/roomdetails");
+  const handleEdit = () => {
+    // Navigate to AddRoom with previous data
+    navigate('/addroom', {
+      state: {
+        safari: {
+          name: SafariType, // Map SafariType to Schedule in AddRoom
+          pricePerPerson: totalCost / (NoOfAdults + NoOfKids * 0.5), // Calculate price per person
+        },
+        userData: {
+          FirstName,
+          LastName,
+          NoOfAdults,
+          NoOfKids,
+        },
+      },
+    });
   };
 
   return (
@@ -28,7 +44,7 @@ function Payment() {
         <p><strong>Total Cost:</strong> LKR {totalCost}</p>
       </div>
       <button onClick={handlePayNow} className="pay-now-button">Pay Now</button>
-      <button onClick={handleAdminView} className="admin-view-button">Admin View</button>
+      <button onClick={handleEdit} className="edit-button">Edit</button> {/* Add Edit Button */}
     </div>
   );
 }

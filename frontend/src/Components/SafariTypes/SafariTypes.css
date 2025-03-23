@@ -1,241 +1,135 @@
+/* General container styling */
 .safari-types-container {
   padding: 20px;
   font-family: 'Arial', sans-serif;
   max-width: 1200px;
   margin: 0 auto;
+  animation: fadeIn 0.8s ease-in-out;
 }
 
+/* Title Styling */
 .safari-types-container h1 {
-  font-size: 28px;
+  font-size: 32px;
   margin-bottom: 20px;
   text-align: center;
-  color: #333;
-  font-weight: 600;
+  color: #222;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  position: relative;
+  animation: slideDown 1s ease-in-out;
 }
 
+/* Sorting section */
 .sort-by {
   margin-bottom: 20px;
   font-size: 14px;
   color: #666;
   text-align: right;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.sort-by:hover {
+  color: #007bff;
 }
 
+/* Grid Layout */
 .safari-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  gap: 25px; /* Increased gap between cards */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
 }
 
+/* Safari Card */
 .safari-card {
-  border: 1px solid #e0e0e0;
+  border: 1px solid #ddd;
   border-radius: 16px;
   padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   overflow: hidden;
   position: relative;
-}
-
-.safari-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.safari-card:hover::before {
-  opacity: 1; /* Add a subtle gradient overlay on hover */
+  cursor: pointer;
 }
 
 .safari-card:hover {
-  transform: translateY(-10px); /* Lift the card more on hover */
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  transform: scale(1.05);
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* Safari Image */
 .safari-image {
   width: 100%;
-  height: 180px; /* Increased height for images */
+  height: 180px;
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 15px;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition: transform 0.4s ease-in-out;
 }
 
 .safari-card:hover .safari-image {
-  transform: scale(1.1); /* Zoom the image more on hover */
-  filter: brightness(1.1); /* Slightly brighten the image */
+  transform: scale(1.1);
 }
 
+/* Safari Details */
 .safari-card h2 {
-  font-size: 20px;
-  margin: 0 0 10px;
+  font-size: 22px;
+  margin: 10px 0;
   color: #333;
-  font-weight: 600;
-  transition: color 0.3s ease;
+  font-weight: 700;
 }
 
-.safari-card:hover h2 {
-  color: #007bff; /* Change title color on hover */
-}
-
-.safari-card .location {
-  font-size: 16px;
-  color: #555;
-  margin: 0 0 10px;
-  font-weight: 500;
-}
-
-.safari-card .details {
-  font-size: 14px;
-  color: #666;
-  margin: 0 0 10px;
-}
-
-.safari-card .bookings {
-  font-size: 14px;
-  color: #666;
-  margin: 0 0 10px;
-}
-
-.safari-card .price {
-  font-size: 18px;
-  color: #333;
-  margin: 0 0 5px;
-  font-weight: bold;
-}
-
-.safari-card .taxes {
-  font-size: 14px;
-  color: #666;
-  margin: 0 0 15px;
-}
-
-.safari-card .view-rates {
-  background-color: #007bff;
+/* View Rates Button */
+.view-rates {
+  background: linear-gradient(90deg, #007bff, #0056b3);
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
+  padding: 12px 25px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.4s ease, transform 0.3s ease;
 }
 
-.safari-card .view-rates:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px); /* Lift the button slightly on hover */
-  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3); /* Add a stronger shadow on hover */
+.view-rates:hover {
+  background: linear-gradient(90deg, #0056b3, #003f8a);
+  transform: translateY(-3px);
+  box-shadow: 0px 5px 15px rgba(0, 123, 255, 0.3);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .safari-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
-  }
-
-  .safari-card {
-    padding: 15px;
-  }
-
-  .safari-image {
-    height: 150px; /* Adjust image height for tablets */
-  }
-
-  .safari-card h2 {
-    font-size: 18px;
-  }
-
-  .safari-card .location {
-    font-size: 14px;
-  }
-
-  .safari-card .details,
-  .safari-card .bookings,
-  .safari-card .taxes {
-    font-size: 12px;
-  }
-
-  .safari-card .price {
-    font-size: 16px;
-  }
-
-  .safari-card .view-rates {
-    padding: 8px 16px;
-    font-size: 12px;
+      grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 480px) {
   .safari-grid {
-    grid-template-columns: 1fr; /* 1 column for mobile */
-  }
-
-  .safari-card {
-    padding: 10px;
-  }
-
-  .safari-image {
-    height: 120px; /* Adjust image height for mobile */
-  }
-
-  .safari-card h2 {
-    font-size: 16px;
-  }
-
-  .safari-card .location {
-    font-size: 12px;
-  }
-
-  .safari-card .details,
-  .safari-card .bookings,
-  .safari-card .taxes {
-    font-size: 10px;
-  }
-
-  .safari-card .price {
-    font-size: 14px;
-  }
-
-  .safari-card .view-rates {
-    padding: 6px 12px;
-    font-size: 10px;
+      grid-template-columns: 1fr;
   }
 }
+
+/* Keyframe Animations */
 @keyframes fadeIn {
   from {
-    opacity: 0;
-    transform: translateY(20px);
+      opacity: 0;
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+      opacity: 1;
   }
 }
 
-.safari-card {
-  animation: fadeIn 0.5s ease-out;
-  animation-fill-mode: both;
+@keyframes slideDown {
+  from {
+      transform: translateY(-20px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
 }
-
-/* Delay animations for each card */
-.safari-card:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.safari-card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.safari-card:nth-child(3) {
-  animation-delay: 0.3s;
-}
-/* Add more delays as needed */
