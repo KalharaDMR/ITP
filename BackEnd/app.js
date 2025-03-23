@@ -6,7 +6,7 @@ const router = require("./Routes/RoomRoute");
 const app = express();
 const cors = require("cors");
 
-//middleware
+//middlewaren
 app.use(express.json());
 app.use(cors());
 app.use("/Rooms",router);
