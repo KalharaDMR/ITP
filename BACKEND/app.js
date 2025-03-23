@@ -18,7 +18,7 @@ app.use("/menu", menuRoutes);
 app.use("/orders", orderRoutes);
 
 mongoose
-  .connect("mongodb+srv://dmrkalhara1007:rRUaYYc80F7zeppg@mycluster.e2pzt.mongodb.net/")
+  .connect("add mongodb connection")
   .then(() => console.log("Connected to MongoDB"))
   .then(() => {
     app.listen(5000, () => console.log("Server running on port 5000"));
