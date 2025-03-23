@@ -1,3 +1,4 @@
+
 // Controllers/InventoryController.js
 const Inventory = require("../Model/InventoryModel");
 
