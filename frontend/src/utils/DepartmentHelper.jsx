@@ -26,7 +26,7 @@ export const DepartmentButtons = ({ _id, onDepartmentDelete }) => {
     if (confirm) {
       try {
         const response = await axios.delete(
-          `http://localhost:5000/api/department/${id}`,
+          `http://localhost:4003/api/department/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -48,14 +48,12 @@ export const DepartmentButtons = ({ _id, onDepartmentDelete }) => {
     <div className="flex space-x-3 ">
       <button
         className="px-3 py-1 bg-teal-600 text-white rounded"
-        onClick={() => navigate(`/admin-dashboard/department/${_id}`)}
-      >
+        onClick={() => navigate(`/admin-dashboard/department/${_id}`)}>
         Update
       </button>
       <button
         className="px-3 py-1 bg-red-600 text-white rounded"
-        onClick={() => handleDelete(_id)}
-      >
+        onClick={() => handleDelete(_id)}>
         Remove
       </button>
     </div>

@@ -51,7 +51,7 @@ const updateDepartment = async (req, res) => {
         return res.status(200).json({success: true, updateDep})
 
     } catch(error) {
-        return res.status(500).json({success: false, error: "edit department server error"})
+        return res.status(500).json({success: false, error: "update department server error"})
     }
     
 }

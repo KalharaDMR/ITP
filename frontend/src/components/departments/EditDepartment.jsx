@@ -43,7 +43,7 @@ const EditDepartment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        const response = await axios.put(`http://localhost:5000/api/department/${id}`, department, {
+        const response = await axios.put(`http://localhost:4003/api/department/${id}`, department, {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem('token')}`
             }
@@ -103,9 +103,8 @@ const EditDepartment = () => {
 
             <button
               type="submit"
-              className="w-full mt-6 bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded"
-            >
-              Edit Department
+              className="w-full mt-6 bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded">
+              Update Department
             </button>
           </form>
         </div>

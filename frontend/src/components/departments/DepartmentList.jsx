@@ -12,7 +12,7 @@ const DepartmentList = () => {
   const onDepartmentDelete = async (id) => {
     const data = departments.filter(dep => dep._id !== id)
     setDepartment(data)
-  }
+  } 
 
   useEffect(() => {
     const fetchDepartments = async () => {
@@ -75,7 +75,7 @@ const DepartmentList = () => {
               to="/admin-dashboard/add-department"
               className="px-4 py-1 bg-teal-600 rounded text-white"
             >
-              Add new Department
+              Add New Department
             </Link>
           </div>
           <div className="mt-5">

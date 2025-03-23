@@ -27,7 +27,7 @@ const AddDepartment = () => {
             })
 
             if(response.data.success) {
-                navigate('/admin-dashboard/departments')
+                navigate('/admin-dashboard/departments')  
             }
         } catch(error) {
             if(error.response && !error.response.data.success) {
