@@ -1,0 +1,15 @@
+/* src/Components/Header/Header.css */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #222; /* Darker background for the header */
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    z-index: 800; /* Ensure the header is above other content */
+    height: 50px; /* Fixed height for the header */
+  }
+
+  

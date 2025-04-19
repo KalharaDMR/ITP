@@ -1,0 +1,65 @@
+/* UpdateMenuItem.css */
+
+.update-menu-item-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    
+  }
+  
+  .update-menu-item-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .update-menu-item-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .update-menu-item-container input[type="text"],
+  .update-menu-item-container input[type="number"],
+  .update-menu-item-container textarea,
+  .update-menu-item-container select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .update-menu-item-container textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 100px;
+  }
+  
+  .update-menu-item-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .update-menu-item-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Optional: Add some spacing and styling for better readability */
+  .update-menu-item-container .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .update-menu-item-container .form-group:last-child {
+    margin-bottom: 0;
+  }

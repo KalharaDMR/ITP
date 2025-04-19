@@ -1,0 +1,67 @@
+/* Inventory.css */
+
+.inventory-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: aliceblue;
+}
+
+.inventory-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #333;
+}
+
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.inventory-table th,
+.inventory-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.inventory-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  color: #333;
+}
+
+.inventory-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.inventory-table button {
+  padding: 8px 12px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.inventory-table button:first-of-type {
+  background-color: #333ba9; /* Green for Update */
+  color: white;
+}
+
+.inventory-table button:first-of-type:hover {
+  background-color: #214e88;
+}
+
+.inventory-table button:last-of-type {
+  background-color: #dc3545; /* Red for Delete */
+  color: white;
+}
+
+.inventory-table button:last-of-type:hover {
+  background-color: #c82333;
+}
+

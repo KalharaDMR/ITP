@@ -1,0 +1,36 @@
+/* App.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('./Kitchenbackground.jpg'); /* Relative path to the image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  
+  .App {
+    text-align: center;
+  }
+
+/* src/App.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the app takes up the full viewport height */
+}
+
+.main-content {
+  flex: 1; /* Allow the main content to grow and fill the remaining space */
+  padding-top: 65px; /* Space for the header */
+  padding-bottom: 60px; /* Space for the footer */
+  overflow-y: auto; /* Allow the content to scroll */
+}

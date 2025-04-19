@@ -1,0 +1,82 @@
+/* CustomerBill.css */
+
+.customer-bill-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: aliceblue;
+  }
+  
+  .customer-bill-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .customer-bill-container form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .customer-bill-container form label {
+    font-weight: bold;
+  }
+  
+  .customer-bill-container form input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .customer-bill-container form button {
+    padding: 5px 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .customer-bill-container form button:hover {
+    background-color: #218838;
+  }
+  
+  .error {
+    color: red;
+    text-align: center;
+  }
+  
+  .bill-details {
+    margin-top: 20px;
+  }
+  
+  .bill-details h2 {
+    margin-bottom: 10px;
+  }
+  
+  .orders-list {
+    display: grid;
+    gap: 10px;
+  }
+  
+  .order-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .order-item h3 {
+    margin: 0 0 5px;
+  }
+  
+  .order-item p {
+    margin: 5px 0;
+  }
+  
+  .bill-details h3 {
+    margin-top: 20px;
+    text-align: right;
+  }

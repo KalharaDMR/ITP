@@ -1,0 +1,12 @@
+/* src/Components/Footer/Footer.css */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    z-index: 800; /* Ensure the footer is above other content */
+  }

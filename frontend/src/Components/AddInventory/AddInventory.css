@@ -1,0 +1,40 @@
+.add-inventory-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: aliceblue;
+  }
+  
+  .add-inventory-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .add-inventory-container label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .add-inventory-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .add-inventory-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #282aa7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-inventory-container button:hover {
+    background-color: #217c88;
+  }

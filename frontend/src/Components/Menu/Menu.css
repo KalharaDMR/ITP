@@ -1,0 +1,110 @@
+/* Menu.css */
+
+/* Container for the menu */
+.menu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: aliceblue;
+}
+
+/* Menu title */
+.menu-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #333;
+}
+
+/* Category Navigation Bar */
+.category-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.category-nav button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.category-nav button:hover {
+  background-color: #0056b3;
+}
+
+/* Menu Items Grid */
+.menu-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Individual Menu Item */
+.menu-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.menu-item h3 {
+  margin: 10px 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.menu-item p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Buttons for Remove and Update */
+.menu-item button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.menu-item button:first-of-type {
+  background-color: #dc3545; /* Red for Remove */
+  color: white;
+}
+
+.menu-item button:first-of-type:hover {
+  background-color: #c82333;
+}
+
+.menu-item button:last-of-type {
+  background-color: #2257a7; /* Green for Update */
+  color: white;
+}
+
+.menu-item button:last-of-type:hover {
+  background-color: #215388;
+}
