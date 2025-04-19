@@ -22,11 +22,11 @@ const menuSchema = new mongoose.Schema({
     enum: ["Juice", "Dessert", "Dish"], // Categories
   },
   ingredients: {
-    type: [String], // Array of ingredients
+    type: [String], 
     required: true,
   },
   image: {
-    type: String, // URL of the uploaded image
+    type: String, 
     required: true,
   },
   createdAt: {

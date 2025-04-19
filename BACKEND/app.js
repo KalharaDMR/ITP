@@ -13,12 +13,12 @@ app.use(cors());
 
 // Use user and inventory routes
 
-app.use("/inventory", inventoryRoutes); // Add this line
+app.use("/inventory", inventoryRoutes); 
 app.use("/menu", menuRoutes);
 app.use("/orders", orderRoutes);
 
 mongoose
-  .connect("mongodb+srv://dmrkalhara1007:rRUaYYc80F7zeppg@mycluster.e2pzt.mongodb.net/")
+  .connect("mongodb+srv://dmrkalhara1007:rRUaYYc80F7zeppg@mycluster.e2pzt.mongodb.net/?retryWrites=true&w=majority&appName=MyCluster")
   .then(() => console.log("Connected to MongoDB"))
   .then(() => {
     app.listen(5000, () => console.log("Server running on port 5000"));
