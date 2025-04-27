@@ -1,0 +1,188 @@
+/* UpdateRooms.css */
+
+.page-container {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  padding: 2rem;
+  padding-top: 140px;
+}
+
+/* Container for the form */
+.update-room-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+/* Form header */
+.form-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.form-header h1 {
+  text-align: center;
+  color: #0e4098;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.form-subtitle {
+  font-size: 1.1rem;
+  color: #0b0f15;
+  font-weight: 400;
+}
+
+.error-message {
+  background-color: #fff5f5;
+  color: #c53030;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  border: 1px solid #feb2b2;
+}
+
+/* Form group (label + input) */
+.update-room-container .form-group {
+  margin-bottom: 2.5rem;
+}
+
+/* Form labels */
+.update-room-container .form-group label {
+  display: block;
+  font-size: 1rem;
+  color: #040a15;
+  margin-bottom: 1rem;
+  font-weight: 550;
+}
+
+/* Form inputs */
+.update-room-container .form-group input,
+.update-room-container .form-group select,
+.update-room-container .form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 7px;
+  font-size: 1rem;
+  color: #5f6167;
+  transition: all 0.2s;
+  background-color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.update-room-container .form-group input:focus,
+.update-room-container .form-group select:focus,
+.update-room-container .form-group textarea:focus {
+  outline: none;
+  border-color: #5220e6;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+.update-room-container .form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.update-room-container .form-group input[type="file"] {
+  padding: 0.5rem;
+  border: none;
+  background: none;
+}
+
+.update-room-container .image-preview {
+  margin-top: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.update-room-container .image-preview img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Submit button */
+.update-room-container .submit-button {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: #3955dd;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 1rem;
+}
+
+.update-room-container .submit-button:hover:not(:disabled) {
+  background-color: #2f2381;
+}
+
+.update-room-container .submit-button:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.loading-container {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.loading-spinner {
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #4299e1;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 1rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .page-container {
+    padding-top: 120px;
+  }
+
+  .update-room-container {
+    margin: 1rem;
+    padding: 1.5rem;
+    max-width: 95%;
+  }
+
+  .update-room-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .update-room-container .form-group label {
+    font-size: 0.875rem;
+  }
+
+  .update-room-container .form-group input,
+  .update-room-container .form-group select,
+  .update-room-container .form-group textarea {
+    font-size: 0.875rem;
+    padding: 0.625rem;
+  }
+
+  .update-room-container .submit-button {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+}

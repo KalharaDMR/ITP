@@ -1,0 +1,117 @@
+.booking-summary {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.summary-container {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-message {
+  text-align: center;
+  margin: 2rem 0;
+  color: #48bb78;
+}
+
+.confirmation-message i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.confirmation-message p {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.summary-details {
+  display: grid;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.summary-section {
+  padding: 1.5rem;
+  background: #f7fafc;
+  border-radius: 8px;
+}
+
+.summary-section h3 {
+  color: #2d3748;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+.summary-section p {
+  margin: 0.5rem 0;
+  color: #4a5568;
+}
+
+.summary-section strong {
+  color: #2d3748;
+}
+
+.payment-details {
+  background: #ebf8ff;
+} 
+
+.total-amount {
+  font-size: 1.4rem;
+  color: #2b6cb0;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.summary-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.print-button, .home-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.print-button {
+  background: #4299e1;
+  color: white;
+  border: none;
+}
+
+.print-button:hover {
+  background: #3182ce;
+}
+
+.home-button {
+  background: white;
+  color: #4299e1;
+  border: 2px solid #4299e1;
+}
+
+.home-button:hover {
+  background: #ebf8ff;
+}
+
+@media print {
+  .summary-actions {
+    display: none;
+  }
+
+  .booking-summary {
+    padding: 0;
+  }
+
+  .summary-container {
+    box-shadow: none;
+  }
+} 
