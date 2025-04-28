@@ -1,0 +1,297 @@
+/* EventPayment.css - Premium Styling with Animations */
+
+/* Base Styles & Color Variables */
+:root {
+    --primary-color: #4361ee;       /* Royal blue for primary actions */
+    --secondary-color: #3a0ca3;    /* Deep purple for accents */
+    --success-color: #4cc9f0;      /* Bright teal for positive actions */
+    --light-bg: #f8f9fa;          /* Light background */
+    --dark-text: #2b2d42;         /* Dark text for contrast */
+    --light-text: #f8f9fa;        /* Light text for dark backgrounds */
+    --border-radius: 12px;        /* Rounded corners */
+    --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  }
+  
+  /* Container Animation */
+  .event-payment-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Header Styling */
+  .event-payment-container h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--dark-text);
+    font-size: 2.3rem;
+    position: relative;
+    padding-bottom: 15px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .event-payment-container h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+  }
+  
+  /* Event Details Card */
+  .event-details {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid var(--primary-color);
+    transform: perspective(1000px) rotateX(0deg);
+    transition: var(--transition);
+    animation: cardFloat 6s ease-in-out infinite alternate;
+  }
+  
+  @keyframes cardFloat {
+    0%, 100% {
+      transform: perspective(1000px) rotateX(0deg) translateY(0);
+    }
+    50% {
+      transform: perspective(1000px) rotateX(1deg) translateY(-5px);
+    }
+  }
+  
+  .event-details:hover {
+    transform: perspective(1000px) rotateX(1deg) translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .event-details h2 {
+    color: var(--dark-text);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .event-details h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 3px;
+  }
+  
+  .event-details p {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    color: #4a5568;
+    padding-left: 10px;
+    border-left: 2px solid #e2e8f0;
+    transition: var(--transition);
+  }
+  
+  .event-details p:hover {
+    border-left: 2px solid var(--primary-color);
+    padding-left: 15px;
+  }
+  
+  .event-details p strong {
+    color: var(--dark-text);
+    min-width: 150px;
+    display: inline-block;
+  }
+  
+  /* Price Highlight */
+  .event-details p:last-child {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #cbd5e0;
+    color: var(--secondary-color);
+  }
+  
+  /* Button Container */
+  .payment-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  /* Payment Button */
+  .pay-now-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+    position: relative;
+    overflow: hidden;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    min-width: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .pay-now-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.6s;
+  }
+  
+  .pay-now-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+  }
+  
+  .pay-now-btn:hover::before {
+    left: 100%;
+  }
+  
+  .pay-now-btn:active {
+    transform: translateY(0) scale(0.98);
+  }
+  
+  /* Edit Button */
+  .edit-btn {
+    background: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    min-width: 220px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .edit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--primary-color);
+    transition: var(--transition);
+    z-index: -1;
+  }
+  
+  .edit-btn:hover {
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.2);
+  }
+  
+  .edit-btn:hover::before {
+    width: 100%;
+  }
+  
+  .edit-btn:active {
+    transform: translateY(0);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .event-payment-container {
+      padding: 1.5rem;
+      margin: 1rem;
+    }
+    
+    .payment-actions {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .pay-now-btn, .edit-btn {
+      width: 100%;
+    }
+    
+    .event-details p strong {
+      min-width: 120px;
+      display: inline-block;
+    }
+  }
+  
+  /* Confetti Animation (for successful payment) */
+  @keyframes confetti {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+  
+  .confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: var(--primary-color);
+    opacity: 0;
+    animation: confetti 3s ease-in-out forwards;
+    z-index: 1000;
+  }
+  
+  /* Loading Spinner */
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  .loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 10px;
+    vertical-align: middle;
+  }

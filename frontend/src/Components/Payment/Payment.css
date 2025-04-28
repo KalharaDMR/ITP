@@ -1,244 +1,415 @@
-/* Payment.css */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Payment.css - Ultra Premium Styling with Advanced Animations */
+
+/* Cosmic Color Palette */
+:root {
+  --cosmic-primary: #6e45e2;    /* Cosmic purple */
+  --cosmic-secondary: #88d3ce;  /* Aqua teal */
+  --cosmic-accent: #ff7e5f;     /* Coral pink */
+  --cosmic-dark: #1a1a2e;       /* Deep space blue */
+  --cosmic-light: #f8f5ff;      /* Starlight white */
+  --cosmic-success: #2ecc71;    /* Emerald green */
+  --cosmic-text: #33334d;       /* Dark text */
+  --cosmic-text-light: #a1a1c2; /* Light text */
+  
+  --border-radius-xl: 16px;
+  --border-radius-lg: 12px;
+  --border-radius-sm: 8px;
+  
+  --box-shadow-soft: 0 15px 35px rgba(0, 0, 0, 0.1);
+  --box-shadow-hard: 0 5px 15px rgba(0, 0, 0, 0.2);
+  
+  --transition-smooth: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --transition-quick: all 0.3s ease-out;
 }
 
-@keyframes bounce {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
+/* Cosmic Background Animation */
+@keyframes cosmicBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-@keyframes glow {
-  0% {
-    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(76, 175, 80, 0.8);
-  }
-  100% {
-    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(-100px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.02);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
+/* Container with Cosmic Flair */
 .payment-container {
-  max-width: 450px;
-  margin: 50px auto;
-  padding: 25px;
-  background: linear-gradient(135deg, #ffffff, #f8f8f8);
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  font-family: Arial, sans-serif;
-  text-align: center;
-  animation: fadeIn 0.8s ease-in-out;
-  transition: transform 0.3s ease-in-out;
-}
-
-.payment-container:hover {
-  transform: rotateX(2deg) rotateY(2deg) scale(1.02);
-}
-
-.payment-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #333;
-  animation: fadeIn 1s ease-in-out;
-}
-
-.payment-details {
-  text-align: left;
-  font-size: 16px;
-  color: #444;
-  margin-bottom: 20px;
-}
-
-.payment-details p {
-  margin: 8px 0;
+  max-width: 850px;
+  margin: 3rem auto;
+  padding: 3rem;
+  background: linear-gradient(135deg, var(--cosmic-light) 0%, #ffffff 100%);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--box-shadow-soft);
+  transform: translateY(30px) scale(0.98);
   opacity: 0;
-  animation: fadeIn 0.5s ease-in-out forwards;
+  animation: cosmicEntrance 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  position: relative;
+  overflow: hidden;
 }
 
-.payment-details p:nth-child(1) { animation-delay: 0.2s; }
-.payment-details p:nth-child(2) { animation-delay: 0.4s; }
-.payment-details p:nth-child(3) { animation-delay: 0.6s; }
-.payment-details p:nth-child(4) { animation-delay: 0.8s; }
-.payment-details p:nth-child(5) { animation-delay: 1s; }
-
-.payment-form .form-group {
-  margin-bottom: 15px;
-  text-align: left;
-  animation: slideIn 0.8s ease-in-out;
+.payment-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    rgba(110, 69, 226, 0.03) 0%,
+    rgba(136, 211, 206, 0.03) 50%,
+    rgba(255, 126, 95, 0.03) 100%
+  );
+  animation: cosmicBackground 15s ease infinite;
+  z-index: -1;
 }
 
-.payment-form label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #444;
+@keyframes cosmicEntrance {
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
 }
 
-.payment-form input,
-.payment-form select {
+/* Header with Animated Gradient */
+.payment-container h1 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 2.5rem;
+  position: relative;
+  padding-bottom: 15px;
+  background: linear-gradient(90deg, var(--cosmic-primary), var(--cosmic-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: textGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  from {
+    text-shadow: 0 0 5px rgba(110, 69, 226, 0.3);
+  }
+  to {
+    text-shadow: 0 0 15px rgba(110, 69, 226, 0.6);
+  }
+}
+
+.payment-container h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cosmic-primary), var(--cosmic-accent));
+  border-radius: 2px;
+  animation: linePulse 2.5s ease-in-out infinite;
+}
+
+@keyframes linePulse {
+  0%, 100% { width: 120px; }
+  50% { width: 150px; }
+}
+
+/* Payment Details Card - Holographic Effect */
+.payment-details {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2.5rem;
+  border-radius: var(--border-radius-lg);
+  margin-bottom: 2.5rem;
+  box-shadow: var(--box-shadow-soft);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.payment-details::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 10px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  box-sizing: border-box;
-  transition: all 0.3s ease-in-out;
+  height: 5px;
+  background: linear-gradient(90deg, var(--cosmic-primary), var(--cosmic-accent));
 }
 
-.payment-form input:focus,
-.payment-form select:focus {
-  border-color: #4CAF50;
-  outline: none;
-  box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
-  transform: scale(1.02);
+.payment-details:hover {
+  transform: perspective(1000px) rotateX(2deg) translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-.card-input-container {
+.payment-details h2 {
+  color: var(--cosmic-dark);
+  margin-top: 0;
+  margin-bottom: 1.8rem;
+  font-size: 1.6rem;
+  position: relative;
+  display: inline-block;
+}
+
+.payment-details h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--cosmic-accent);
+  border-radius: 3px;
+  transition: var(--transition-smooth);
+}
+
+.payment-details:hover h2::after {
+  width: 80px;
+  background: var(--cosmic-primary);
+}
+
+/* Detail Items with Interactive Animation */
+.detail-item {
+  margin: 1.2rem 0;
+  font-size: 1.1rem;
+  color: var(--cosmic-text);
+  padding-left: 15px;
+  border-left: 2px solid rgba(136, 211, 206, 0.3);
+  transition: var(--transition-smooth);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  position: relative;
 }
 
-.card-icons {
-  position: absolute;
-  right: 10px;
-  font-size: 22px;
-  color: #888;
-  transition: transform 0.3s ease-in-out;
+.detail-item:hover {
+  border-left: 3px solid var(--cosmic-primary);
+  padding-left: 20px;
+  transform: translateX(5px);
 }
 
-.card-icons:hover {
-  transform: scale(1.2);
-  color: #4CAF50;
+.detail-item strong {
+  color: var(--cosmic-dark);
+  min-width: 160px;
+  display: inline-block;
+  font-weight: 600;
 }
 
-.input-error {
-  border-color: red !important;
-}
-
-.error {
-  color: red;
-  font-size: 0.85em;
-  margin-top: 5px;
-}
-
-.total-amount {
-  background: #f9f9f9;
-  font-weight: bold;
-  color: #333;
-  text-align: center;
-  padding: 10px;
-  border-radius: 5px;
-  animation: pulse 1.5s infinite;
-}
-
-.button-container {
+/* Total Price - Animated Highlight */
+.total-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(136, 211, 206, 0.5);
+  color: var(--cosmic-primary);
   display: flex;
-  justify-content: space-between; /* Ensures buttons are on the opposite sides */
-  margin-top: 20px;
-  animation: slideIn 1s ease-in-out;
+  justify-content: space-between;
+  align-items: center;
+  animation: pricePulse 4s infinite;
 }
 
-.pay-now-button {
-  width: 48%;
-  padding: 12px;
-  background-color: #4CAF50; /* Vibrant green for Pay Now */
+@keyframes pricePulse {
+  0%, 100% { color: var(--cosmic-primary); }
+  50% { color: var(--cosmic-accent); }
+}
+
+.total-price::after {
+  content: '✓ Secure Payment';
+  font-size: 0.9rem;
+  color: var(--cosmic-success);
+  padding: 0.3rem 0.8rem;
+  background: rgba(46, 204, 113, 0.1);
+  border-radius: 50px;
+  animation: fadeInOut 3s infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* Action Buttons - Futuristic Style */
+.payment-actions {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+/* Pay Now Button - 3D Hover Effect */
+.pay-now-btn {
+  background: linear-gradient(135deg, var(--cosmic-primary) 0%, var(--cosmic-secondary) 100%);
   color: white;
   border: none;
-  border-radius: 5px;
-  font-size: 18px;
+  padding: 1.2rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  animation: slideIn 0.8s ease-in-out;
+  transition: var(--transition-bounce);
+  box-shadow: 0 10px 20px rgba(110, 69, 226, 0.3);
+  position: relative;
+  overflow: hidden;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  min-width: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  z-index: 1;
 }
 
-.pay-now-button:hover {
-  background-color: #45a049;
-  animation: bounce 0.4s ease-in-out;
+.pay-now-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--cosmic-accent) 0%, var(--cosmic-primary) 100%);
+  opacity: 0;
+  transition: var(--transition-smooth);
+  z-index: -1;
 }
 
-.pay-now-button:active {
-  animation: glow 1s infinite alternate;
+.pay-now-btn:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(110, 69, 226, 0.4);
 }
 
-/* Edit Button - Soft Blue for Edit */
-.edit-button {
-  width: 48%;
-  padding: 12px;
-  background: #007bff; /* Soft blue color for Edit */
-  color: white;
-  border: none;
-  border-radius: 25px;
+.pay-now-btn:hover::before {
+  opacity: 1;
+}
+
+.pay-now-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.pay-now-btn i {
+  margin-right: 10px;
+  font-size: 1.3rem;
+  animation: iconFloat 2s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Edit Button - Glass Morphism */
+.edit-btn {
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--cosmic-primary);
+  border: 2px solid rgba(110, 69, 226, 0.3);
+  padding: 1.2rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  font-weight: bold;
-  animation: fadeIn 0.5s ease-in-out;
+  transition: var(--transition-smooth);
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  min-width: 240px;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* Hover Effect */
-.edit-button:hover {
-  background: #0056b3; /* Darker blue on hover */
+.edit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(110, 69, 226, 0.1) 0%, rgba(136, 211, 206, 0.1) 100%);
+  transition: var(--transition-smooth);
+  z-index: -1;
+}
+
+.edit-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.6);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-color: var(--cosmic-primary);
+  background: rgba(255, 255, 255, 0.95);
 }
 
-/* Click Animation */
-.edit-button:active {
-  animation: glow 0.5s ease-in-out;
+.edit-btn:active {
+  transform: translateY(0);
 }
 
-/* Delete Button Animation */
-.delete-button {
-  padding: 12px 20px;
-  background: #d9534f;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: bold;
-  margin-left: 10px;
-  animation: fadeIn 0.5s ease-in-out;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .payment-container {
+    padding: 2rem 1.5rem;
+    margin: 1.5rem;
+    border-radius: var(--border-radius-lg);
+  }
+  
+  .payment-actions {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .pay-now-btn, .edit-btn {
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .detail-item strong {
+    min-width: 130px;
+  }
 }
 
-.delete-button:hover {
-  background: #c9302c;
-  transform: translateY(-2px);
+/* Advanced Animations */
+/* Particle Animation for Success State */
+@keyframes particleExplode {
+  0% {
+    transform: translate(0, 0) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(1);
+    opacity: 0;
+  }
+}
+
+.success-particle {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cosmic-success);
+  animation: particleExplode 1s ease-out forwards;
+  z-index: 1000;
+}
+
+/* Holographic Card Tilt Effect */
+@media (hover: hover) {
+  .payment-details {
+    transition: transform 0.1s linear;
+  }
+  
+  .payment-details:hover {
+    transform: perspective(1000px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) translateZ(20px);
+  }
+}
+
+/* Loading Animation */
+@keyframes cosmicLoading {
+  0% { transform: rotate(0deg); box-shadow: 0 0 0 var(--cosmic-primary); }
+  50% { box-shadow: 0 0 20px var(--cosmic-accent); }
+  100% { transform: rotate(360deg); box-shadow: 0 0 0 var(--cosmic-secondary); }
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(110, 69, 226, 0.2);
+  border-radius: 50%;
+  border-top-color: var(--cosmic-primary);
+  animation: cosmicLoading 1.5s linear infinite;
+  margin-right: 12px;
+  vertical-align: middle;
 }

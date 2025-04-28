@@ -301,7 +301,7 @@ function Rooms() {
 
 export default Rooms;*/
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState,handleDelete,user } from 'react';
 import axios from "axios";
 import Room from '../Room/Room';
 import { useReactToPrint } from "react-to-print";
@@ -319,6 +319,16 @@ const fetchHandler = async () => {
     return [];
   }
 };
+
+// Add this to your Rooms.js component
+const isAdmin = localStorage.getItem('adminAuth');
+
+// Then in your Room component rendering:
+{isAdmin && (
+  <button onClick={() => handleDelete(user._id)} className="delete-btn">
+    Delete
+  </button>
+)}
 
 function Rooms() {
   const [rooms, setRooms] = useState([]); // Main data state

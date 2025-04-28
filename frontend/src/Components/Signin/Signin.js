@@ -4,7 +4,7 @@ import axios from "axios";
 import "./Signin.css"; // Import CSS for styling
 
 function Signin() {
-  const history = useNavigate();
+  const navigate = useNavigate(); // ✅ Updated from 'history' to 'navigate'
   const [user, setUser] = useState({
     gmail: "",
     password: "",
@@ -26,20 +26,17 @@ function Signin() {
 
       if (response.data.status === "ok") {
         alert("Sign in successful!");
-        history("/safaritypes"); // Redirect to Safaris tab
+        navigate("/safaritypes"); // ✅ Correct usage of navigate
       } else {
         alert(response.data.message || "Sign in failed. Please try again.");
       }
     } catch (err) {
       console.error("Error signing in:", err);
       if (err.response) {
-        // Server responded with a status code outside 2xx
         alert(err.response.data.message || "Sign in failed. Please try again.");
       } else if (err.request) {
-        // No response received
         alert("No response from the server. Please check your connection.");
       } else {
-        // Something went wrong in setting up the request
         alert("An error occurred. Please try again.");
       }
     }
@@ -76,7 +73,7 @@ function Signin() {
         </form>
 
         <div className="register-link">
-          <p>Don't have an account? <Link to="/register">Register here</Link></p>
+          <p>Don't have an account? <Link to="/safari-register">Register here</Link></p>
         </div>
       </div>
     </div>

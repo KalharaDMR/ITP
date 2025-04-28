@@ -103,7 +103,7 @@ function Register() {
           </form>
 
           <div className="login-link">
-            <p>Already have an account? <Link to="/signin">Sign in</Link></p>
+            <p>Already have an account? <Link to="/safari-signin">Sign in</Link></p>
           </div>
         </div>
       </div>

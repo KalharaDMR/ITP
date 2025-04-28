@@ -1,0 +1,783 @@
+/* Ultra Premium Event Packages CSS */
+:root {
+    --primary-color: #ff4d4d;
+    --secondary-color: #3bd6d6;
+    --dark-color: #1a1f24;
+    --light-color: #f8f9fa;
+    --accent-color: #ffcc33;
+    --nav-bg: rgba(26, 31, 36, 0.98);
+    --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    --gradient-hover: linear-gradient(135deg, #ff3333, #2bc9c9);
+    --shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    --card-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --text-gradient: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  }
+  
+  /* Base Styles with Smooth Scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  }
+  
+  body {
+    background-color: #f0f2f5;
+    color: var(--dark-color);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+  
+  /* Particle Background Effect */
+  .particle-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  }
+  
+  /* 3D Card Tilt Effect */
+  .event-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .event-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+  }
+  
+  /* Loading Screen with Gradient Morph */
+  .loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--gradient);
+    color: white;
+    z-index: 9999;
+    animation: gradientMorph 12s ease infinite;
+    background-size: 200% 200%;
+  }
+  
+  @keyframes gradientMorph {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .spinner {
+    width: 70px;
+    height: 70px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+    margin-bottom: 25px;
+    position: relative;
+  }
+  
+  .spinner::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: spinReverse 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes spinReverse {
+    to { transform: rotate(-360deg); }
+  }
+  
+  /* Hero Section with Parallax Effect */
+  .hero-section {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    padding: 0 20px;
+  }
+  
+  .hero-parallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../../../public/images/safari14.jpeg') center/cover no-repeat fixed;
+    z-index: -1;
+    opacity: 0.3;
+  }
+  
+  .hero-title {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeInDown 0.8s ease-out both;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Floating Scroll Indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: float 3s ease-in-out infinite, fadeIn 1s ease-out 1s both;
+  }
+  
+  .scroll-indicator span {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-bottom: 3px solid white;
+    border-right: 3px solid white;
+    transform: rotate(45deg);
+    margin: -12px;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+  
+  .scroll-indicator:hover span {
+    opacity: 1;
+    transform: rotate(45deg) scale(1.2);
+  }
+  
+  /* Glowing Filter Buttons */
+  .filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 40px 20px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 10;
+  }
+  
+  .filter-buttons::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient);
+    background-size: 200% 200%;
+    animation: gradientMorph 6s ease infinite;
+  }
+  
+  .filter-buttons button {
+    padding: 12px 30px;
+    border: none;
+    background: transparent;
+    color: var(--dark-color);
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .filter-buttons button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient);
+    opacity: 0;
+    transition: var(--transition);
+    z-index: -1;
+  }
+  
+  .filter-buttons button:hover {
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .filter-buttons button:hover::before {
+    opacity: 1;
+  }
+  
+  .filter-buttons button.active {
+    color: white;
+    background: var(--gradient);
+    box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
+  }
+  
+  .filter-buttons button.active:hover {
+    background: var(--gradient-hover);
+  }
+  
+  /* Holographic Event Cards */
+  .event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 40px;
+    padding: 60px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .event-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    position: relative;
+  }
+  
+  .event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 50%,
+      rgba(255, 255, 255, 0.2) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .event-card:hover::before {
+    opacity: 1;
+    animation: holographicEffect 3s linear infinite;
+  }
+  
+  @keyframes holographicEffect {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+  
+  .card-image-container {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  
+  .event-card:hover .card-image {
+    transform: scale(1.1);
+  }
+  
+  .card-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 2;
+  }
+  
+  .card-badge span {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+  }
+  
+  .card-badge span:hover {
+    transform: scale(1.05);
+  }
+  
+  .rating {
+    background: var(--accent-color) !important;
+    color: var(--dark-color) !important;
+  }
+  
+  .event-info {
+    padding: 30px;
+  }
+  
+  .event-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+    position: relative;
+    display: inline-block;
+  }
+  
+  .event-info h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--gradient);
+    transition: var(--transition);
+  }
+  
+  .event-card:hover .event-info h2::after {
+    width: 100px;
+  }
+  
+  .event-info .description {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.7;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+  }
+  
+  .price {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    position: relative;
+  }
+  
+  .price::before {
+    content: 'Starting from';
+    position: absolute;
+    top: -18px;
+    left: 0;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #888;
+  }
+  
+  /* Liquid Button Effect */
+  .book-now-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 25px;
+    background: var(--gradient);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
+    z-index: 1;
+  }
+  
+  .book-now-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: 0.6s;
+    z-index: -1;
+  }
+  
+  .book-now-btn:hover {
+    background: var(--gradient-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 77, 77, 0.4);
+  }
+  
+  .book-now-btn:hover::before {
+    left: 100%;
+  }
+  
+  .book-now-btn svg {
+    fill: none;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: var(--transition);
+  }
+  
+  .book-now-btn:hover svg {
+    transform: translateX(5px);
+  }
+  
+  /* Interactive CTA Section */
+  .cta-section {
+    text-align: center;
+    padding: 100px 20px;
+    background: var(--dark-color);
+    color: white;
+    border-radius: 20px;
+    margin: 60px auto;
+    max-width: 1200px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1950&q=80') center/cover;
+    opacity: 0.15;
+    z-index: 0;
+  }
+  
+  .cta-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient);
+    opacity: 0.3;
+    z-index: 1;
+  }
+  
+  .cta-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .cta-section p {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+  
+  /* Magnetic Button Effect */
+  .cta-button {
+    padding: 18px 40px;
+    background: var(--accent-color);
+    color: var(--dark-color);
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(255, 204, 51, 0.3);
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    z-index: 1;
+  }
+  
+  .cta-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(255, 204, 51, 0.4);
+  }
+  
+  .cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+  
+  .cta-button:hover::before {
+    opacity: 1;
+  }
+  
+  /* Floating Particles */
+  .particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  /* Responsive Design with Fluid Typography */
+  @media (max-width: 1200px) {
+    .hero-title {
+      font-size: 3.5rem;
+    }
+    
+    .event-grid {
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .hero-title {
+      font-size: 3rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.3rem;
+    }
+    
+    .cta-section h2 {
+      font-size: 2.2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero-section {
+      min-height: 600px;
+    }
+    
+    .hero-title {
+      font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.1rem;
+      max-width: 90%;
+    }
+    
+    .event-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    
+    .filter-buttons {
+      padding: 30px 15px;
+    }
+    
+    .filter-buttons button {
+      padding: 10px 20px;
+      font-size: 0.95rem;
+    }
+    
+    .cta-section {
+      padding: 70px 20px;
+      margin: 40px 20px;
+    border-radius: 15px;
+    }
+    
+    .cta-section h2 {
+      font-size: 1.8rem;
+    }
+    
+    .cta-section p {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+    
+    .filter-buttons {
+      gap: 10px;
+    }
+    
+    .filter-buttons button {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
+    
+    .event-card {
+      border-radius: 15px;
+    }
+    
+    .card-image-container {
+      height: 220px;
+    }
+    
+    .event-info {
+      padding: 20px;
+    }
+    
+    .event-info h2 {
+      font-size: 1.5rem;
+    }
+    
+    .price {
+      font-size: 1.2rem;
+    }
+    
+    .book-now-btn {
+      padding: 10px 20px;
+    }
+  }
+  
+  /* Advanced Animations */
+  @keyframes float {
+    0% { transform: translateY(0px) translateX(-50%); }
+    50% { transform: translateY(-15px) translateX(-50%); }
+    100% { transform: translateY(0px) translateX(-50%); }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* 3D Card Hover Effect */
+  .event-card {
+    transform: perspective(1000px) rotateX(0) rotateY(0) scale(1);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+  
+  .event-card:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.02);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* Glow Effect for Premium Cards */
+  .event-card.premium::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff4d4d, #3bd6d6, #ffcc33);
+    z-index: -1;
+    border-radius: 22px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .event-card.premium:hover::after {
+    opacity: 0.6;
+    animation: glow 2s linear infinite;
+  }
+  
+  @keyframes glow {
+    0% { filter: blur(5px); opacity: 0.6; }
+    50% { filter: blur(8px); opacity: 0.8; }
+    100% { filter: blur(5px); opacity: 0.6; }
+  }
+  
+  /* Micro-interaction for Badges */
+  .card-badge span {
+    transform-origin: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card-badge span:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Responsive Typography */
+  @media (min-width: 1800px) {
+    html {
+      font-size: 18px;
+    }
+  }
+  
+  @media (min-width: 2200px) {
+    html {
+      font-size: 20px;
+    }
+  }
