@@ -1,40 +1,90 @@
 .add-inventory-container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: aliceblue;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+}
+
+.add-inventory-container h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+.add-inventory-container form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-inventory-container label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #34495e;
+  font-size: 0.95rem;
+}
+
+.add-inventory-container input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+.add-inventory-container input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  background-color: white;
+}
+
+.add-inventory-container button {
+  padding: 0.85rem;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.5rem;
+}
+
+.add-inventory-container button:hover {
+  background: linear-gradient(135deg, #2980b9, #3498db);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(41, 128, 185, 0.3);
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background-color: rgba(231, 76, 60, 0.1);
+  border-radius: 4px;
+  border-left: 3px solid #e74c3c;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .add-inventory-container {
+    padding: 1.5rem;
+    margin: 1rem;
   }
-  
-  .add-inventory-container h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .add-inventory-container label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .add-inventory-container input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .add-inventory-container button {
-    width: 100%;
-    padding: 10px;
-    background-color: #282aa7;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .add-inventory-container button:hover {
-    background-color: #217c88;
-  }
+}

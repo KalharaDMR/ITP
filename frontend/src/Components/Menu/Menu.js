@@ -1,3 +1,4 @@
+// src/Components/Menu/Menu.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -6,7 +7,7 @@ import "./Menu.css";
 function Menu() {
   const [menuItems, setMenuItems] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchMenuItems();
@@ -31,36 +32,50 @@ function Menu() {
   };
 
   const handleUpdate = (id) => {
-    history(`/updatemenuitem/${id}`); // Navigate to the update page
+    navigate(`/updatemenuitem/${id}`);
   };
 
-  const filteredMenuItems = selectedCategory === "All"
-    ? menuItems
-    : menuItems.filter((item) => item.category === selectedCategory);
+  const filteredMenuItems =
+    selectedCategory === "All"
+      ? menuItems
+      : menuItems.filter((item) => item.category === selectedCategory);
 
   return (
     <div className="menu-container">
-      <h1>Today's Menu</h1>
+      <h1>Today's Menu 🍽️</h1>
 
-      {/* Category Navigation Bar */}
+      {/* Category Navigation */}
       <div className="category-nav">
-        <button onClick={() => setSelectedCategory("All")}>All</button>
-        <button onClick={() => setSelectedCategory("Juice")}>Juice</button>
-        <button onClick={() => setSelectedCategory("Dessert")}>Dessert</button>
-        <button onClick={() => setSelectedCategory("Dish")}>Dish</button>
+        {["All", "Juice", "Dessert", "Dish"].map((category) => (
+          <button
+            key={category}
+            onClick={() => setSelectedCategory(category)}
+            className={selectedCategory === category ? "active" : ""}
+          >
+            {category}
+          </button>
+        ))}
       </div>
 
-      {/* Display Menu Items */}
+      {/* Menu Items */}
       <div className="menu-items">
         {filteredMenuItems.map((item) => (
-          <div key={item._id} className="menu-item">
-            <img src={item.image} alt={item.name} width="200" />
+          <div key={item._id} className="menu-item-card">
+            <img src={item.image} alt={item.name} className="menu-image" />
             <h3>{item.name}</h3>
-            <p>{item.description}</p>
-            <p>Price: Rs.{item.price}</p>
-            <p>Ingredients: {item.ingredients.join(", ")}</p>
-            <button onClick={() => handleDelete(item._id)}>Remove</button>
-            <button onClick={() => handleUpdate(item._id)}>Update</button>
+            <p className="description">{item.description}</p>
+            <p className="price">Rs. {item.price}</p>
+            <p className="ingredients">
+              <strong>Ingredients:</strong> {item.ingredients.join(", ")}
+            </p>
+            <div className="button-group">
+              <button className="btn remove" onClick={() => handleDelete(item._id)}>
+                Remove
+              </button>
+              <button className="btn update" onClick={() => handleUpdate(item._id)}>
+                Update
+              </button>
+            </div>
           </div>
         ))}
       </div>

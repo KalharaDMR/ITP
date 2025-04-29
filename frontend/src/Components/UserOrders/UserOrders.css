@@ -1,15 +1,61 @@
 /* UserOrders.css */
-
 .user-orders-container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
 }
 
-.user-orders-container h1 {
-  text-align: center;
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
-  color: aliceblue;
+}
+
+h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+.date-filter {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.date-input {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.date-input label {
+  font-weight: bold;
+  color: #333;
+}
+
+.date-input input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.pdf-button {
+  background-color: #28b46c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.pdf-button:hover {
+  background-color: #1e8a4f;
 }
 
 .orders-list {
@@ -18,41 +64,21 @@
 }
 
 .order-item {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 15px;
-  background-color: #f9f9f9;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .order-item h3 {
-  margin: 0 0 10px;
+  margin: 0;
+  font-size: 20px;
+  color: #333;
 }
 
 .order-item p {
-  margin: 5px 0;
-}
-
-.ordered-items {
-  margin-top: 10px;
-}
-
-.ordered-items h4 {
-  margin-bottom: 5px;
-}
-
-.ordered-items ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.ordered-items li {
-  margin: 5px 0;
-}
-
-.total-bill {
-  margin-top: 10px;
-  font-size: 1.1em;
-  color: #333;
+  margin: 8px 0;
+  color: #555;
 }
 
 .status-buttons {
@@ -62,10 +88,11 @@
 }
 
 .status-buttons button {
-  padding: 5px 10px;
+  padding: 8px 12px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .status-buttons button:disabled {
@@ -81,4 +108,16 @@
 .status-buttons button:last-child {
   background-color: #28a745;
   color: white;
+}
+
+.status-buttons button:hover {
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .header-section {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

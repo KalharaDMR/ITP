@@ -1,52 +1,48 @@
+// src/Components/Nav/Nav.js
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Nav.css";
 
-function Nav() {
+function Nav({ userRole, setUserRole }) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setUserRole("");
+    navigate("/login");
+  };
+
   return (
-    <nav>
-      <ul className="nav-ul">
-        <li className="nav-li">
-          <Link to="/" className="nav-link">
-            Home
-          </Link>
-        </li>
-        <li className="nav-li">
-          <Link to="/addinventory" className="nav-link">
-            Add Inventory
-          </Link>
-        </li>
-        <li className="nav-li">
-          <Link to="/inventory" className="nav-link">
-            Inventory
-          </Link>
-        </li>
-        {/* Add Menu Management Links */}
-        <li className="nav-li">
-          <Link to="/addmenuitem" className="nav-link">
-            Add Menu Item
-          </Link>
-        </li>
-        <li className="nav-li">
-          <Link to="/menu" className="nav-link">
-            Menu (Admin)
-          </Link>
-        </li>
-        <li className="nav-li">
-          <Link to="/usermenu" className="nav-link">
-            User Menu
-          </Link>
-        </li>
-        <li className="nav-li">
-          <Link to="/userorders" className="nav-link">
-            User Orders
-          </Link>
-        </li>
-        <li className="nav-li">
-          <Link to="/customerbill" className="nav-link">
-            Customer Bill
-          </Link>
-        </li>
+    <nav className="navbar">
+      <div className="navbar-logo">
+        <Link to="/">🏨 Kitchen Management</Link>
+      </div>
+
+      <ul className="navbar-links">
+        {userRole === "staff" && (
+          <>
+            <li><Link to="/addinventory">Add Inventory</Link></li>
+            <li><Link to="/inventory">Inventory</Link></li>
+            <li><Link to="/addmenuitem">Add Menu Item</Link></li>
+            <li><Link to="/menu">Menu (Admin)</Link></li>
+            <li><Link to="/userorders">User Orders</Link></li>
+            <li><Link to="/customerbill">Customer Bill</Link></li>
+          </>
+        )}
+
+        {userRole === "customer" && (
+          <>
+            <li><Link to="/usermenu">User Menu</Link></li>
+            <li><Link to="/customerbill">Customer Bill</Link></li>
+          </>
+        )}
+
+        {userRole && (
+          <li>
+            <button className="logout-btn" onClick={handleLogout}>
+              Logout
+            </button>
+          </li>
+        )}
       </ul>
     </nav>
   );

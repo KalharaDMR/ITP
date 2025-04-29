@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./UserMenu.css"; // Create a new CSS file for UserMenu
+import "./UserMenu.css"; // Link to the CSS file for UserMenu
 
 function UserMenu() {
   const [menuItems, setMenuItems] = useState([]);
@@ -42,6 +42,18 @@ function UserMenu() {
     }));
   };
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    // Prevent '@' character
+    if (value.includes("@")) {
+      return; // Stop updating if @ is found
+    }
+    setOrderForm((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
   const handleOrderSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -73,7 +85,7 @@ function UserMenu() {
       <div className="menu-items">
         {filteredMenuItems.map((item) => (
           <div key={item._id} className="menu-item">
-            <img src={item.image} alt={item.name} width="200" />
+            <img src={item.image} alt={item.name} />
             <h3>{item.name}</h3>
             <p>{item.description}</p>
             <p>Price: Rs.{item.price}</p>
@@ -94,7 +106,7 @@ function UserMenu() {
                 type="text"
                 name="username"
                 value={orderForm.username}
-                onChange={handleOrderChange}
+                onChange={handleInputChange} // Apply input change handler
                 required
               />
               <label>Quantity</label>
@@ -118,7 +130,7 @@ function UserMenu() {
               <textarea
                 name="specialInstructions"
                 value={orderForm.specialInstructions}
-                onChange={handleOrderChange}
+                onChange={handleInputChange} // Apply input change handler
               />
               <button type="submit">Place Order</button>
               <button type="button" onClick={() => setShowOrderForm(false)}>Cancel</button>

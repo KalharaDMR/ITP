@@ -16,11 +16,19 @@ function AddInventory() {
   const [errors,setErrors]=useState({});
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+  
+    // Prevent '@' character
+    if (value.includes("@")) {
+      return; // Stop updating if @ is found
+    }
+  
     setInputs((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value,
+      [name]: value,
     }));
   };
+  
 
   const validateForm=()=>{
     const newErrors={};
@@ -63,24 +71,70 @@ function AddInventory() {
 
   return (
     <div className="add-inventory-container">
-      <h1>Add Inventory Item</h1>
+      <h1>Add New Inventory Item</h1>
       {errors.submit && <p className="error">{errors.submit}</p>}
       <form onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input type="text" name="name" value={inputs.name} onChange={handleChange} required />
-        {errors.name && <p className="error">{errors.name}</p>}
-        <label>Quantity</label>
-        <input type="number" name="quantity" value={inputs.quantity} onChange={handleChange} required />
-        {errors.quantity && <p className="error">{errors.quantity}</p>}
-        <label>Unit</label>
-        <input type="text" name="unit" value={inputs.unit} onChange={handleChange} required />
-        {errors.unit && <p className="error">{errors.unit}</p>}
-        <label>Price Per Unit</label>
-        <input type="number" name="pricePerUnit" value={inputs.pricePerUnit} onChange={handleChange} required />
-        {errors.pricePerUnit && <p className="error">{errors.pricePerUnit}</p>}
-        <label>Supplier</label>
-        <input type="text" name="supplier"  value={inputs.supplier} onChange={handleChange} />
-        <button type="submit">ADD</button>
+        <div className="form-group">
+          <label>Item Name</label>
+          <input 
+            type="text" 
+            name="name" 
+            value={inputs.name} 
+            onChange={handleChange} 
+            placeholder="Enter item name"
+          />
+          {errors.name && <p className="error">{errors.name}</p>}
+        </div>
+
+        <div className="form-group">
+          <label>Quantity</label>
+          <input 
+            type="number" 
+            name="quantity" 
+            value={inputs.quantity} 
+            onChange={handleChange} 
+            placeholder="Enter quantity"
+          />
+          {errors.quantity && <p className="error">{errors.quantity}</p>}
+        </div>
+
+        <div className="form-group">
+          <label>Unit of Measurement</label>
+          <input 
+            type="text" 
+            name="unit" 
+            value={inputs.unit} 
+            onChange={handleChange} 
+            placeholder="e.g., kg, liters, pieces"
+          />
+          {errors.unit && <p className="error">{errors.unit}</p>}
+        </div>
+
+        <div className="form-group">
+          <label>Price Per Unit (Rs)</label>
+          <input 
+            type="number" 
+            name="pricePerUnit" 
+            value={inputs.pricePerUnit} 
+            onChange={handleChange} 
+            placeholder="Enter price per unit"
+            step="0.01"
+          />
+          {errors.pricePerUnit && <p className="error">{errors.pricePerUnit}</p>}
+        </div>
+
+        <div className="form-group">
+          <label>Supplier</label>
+          <input 
+            type="text" 
+            name="supplier"  
+            value={inputs.supplier} 
+            onChange={handleChange} 
+            placeholder="Enter supplier name (optional)"
+          />
+        </div>
+
+        <button type="submit">Add Inventory Item</button>
       </form>
     </div>
   );
