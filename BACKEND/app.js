@@ -25,7 +25,7 @@ app.use("/orders", orderRoutes);
 
 // MongoDB connection
 mongoose
-  .connect("mongodb+srv://dmrkalhara1007:rRUaYYc80F7zeppg@mycluster.e2pzt.mongodb.net/?retryWrites=true&w=majority&appName=MyCluster")
+  .connect("mongodb+srv://dmrkalhara1007:<password>@mycluster.e2pzt.mongodb.net/?retryWrites=true&w=majority&appName=MyCluster")
   .then(() => {
     console.log("Connected to MongoDB");
 
